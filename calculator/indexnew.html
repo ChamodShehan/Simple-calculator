@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator Project</title>
+
+<style type="text/css">
+	
+	h1{
+		background-color: black;
+		color: red;
+		text-align: center;
+	}
+</style>
+
+<link rel="stylesheet" type="text/css" href="assest/css/calculatorstyle.css">
+
+<script type="text/javascript">
+
+	var _number01,_number02,_answer,_operator;  
+
+	function setScreen(num){
+		if(document.getElementById('txtScreen').value!="0")
+		{
+			document.getElementById('txtScreen').value+=num;
+		}
+		else
+		{
+			document.getElementById('txtScreen').value=num;
+		}
+	}
+	function reset(){
+		document.getElementById('txtScreen').value="0";
+	}
+
+	function setOperator(op){
+
+		console.log(op);
+		_number01=document.getElementById('txtScreen').value;
+		document.getElementById('txtScreen').value="0";
+		console.log("_number01:"+_number01);
+		console.log("_operator:"+op);
+		_operator=op;
+
+	}
+
+	function getAnswer(){
+		_number02=document.getElementById('txtScreen').value;
+		console.log("_number02:"+_number02);
+
+		if(_operator=='+'){
+			_answer=Number(_number01)+Number(_number02);
+
+		}
+		else if(_operator=='-'){
+			_answer=Number(_number01)-Number(_number02);
+		}
+		else if(_operator=='*'){
+			_answer=Number(_number01)*Number(_number02);
+
+		}
+		else if(_operator=='/'){
+			_answer=Number(_number01)/ Number(_number02);
+
+		}
+		document.getElementById('txtScreen').value=_answer;
+	}
+
+</script>
+</head>
+<body style="background-color: black;">
+	<h1 style=""><center>Simple calculator</center></h1>
+	
+
+	<div class="box">
+		<div class="display">
+			<input type="text" readonly="" size="18" name="" id="txtScreen" value="0">
+		</div>
+
+		<div class="keys">
+			<input type="button" name="" value="7" class="button blank" onclick="setScreen('7')">
+			<input type="button" name="" value="8" class="button" onclick="setScreen('8')">
+			<input type="button" name="" value="9" class="button" onclick="setScreen('9')"> 
+			<input type="button" name="" value="+" class="button" onclick="setOperator('+')"><br>
+			<input type="button" name="" value="4" class="button" onclick="setScreen('4')">
+			<input type="button" name="" value="5" class="button" onclick="setScreen('5')">
+			<input type="button" name="" value="6" class="button" onclick="setScreen('6')">
+			<input type="button" name="" value="-" class="button" onclick="setOperator('-')"><br>
+			<input type="button" name="" value="1" class="button" onclick="setScreen('1')">
+			<input type="button" name="" value="2" class="button" onclick="setScreen('2')">
+			<input type="button" name="" value="3 " class="button" onclick="setScreen('3')">
+			<input type="button" name="" value="*" class="button" onclick="setOperator('*')"><br>
+			<input type="button" name="" value="C" class="button pink" onclick="reset()">
+			<input type="button" name="" value="0" class="button" onclick="setScreen('0')">
+			<input type="button" name="" value="=" class="button pink" onclick="getAnswer()">
+			<input type="button" name="" value="/" class="button" onclick="setOperator('/')">
+			
+		</div>
+	</div>
+
+	
+
+</body>
+</html>
